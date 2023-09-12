@@ -36,7 +36,7 @@ class EmailSender:
         msg['Subject'] = self.subject
         msg['From'] = self.sender
         msg['To'] = self.recipient
-        msg.attach(MIMEText(self.text, "plain"))
+        msg.attach(MIMEText(self.text, 'plain'))
         return msg
         
     def attach_image(self, image_file: str) -> None:
@@ -48,7 +48,7 @@ class EmailSender:
     def attach_pdf(self, pdf_file: str) -> None:
         with open(pdf_file, 'rb') as f:
             pdf_data = f.read()
-        pdf = MIMEApplication(pdf_data, _subtype="pdf")
+        pdf = MIMEApplication(pdf_data, _subtype='pdf')
         pdf.add_header(
             'Content-Disposition', 
             'attachment', 
@@ -57,7 +57,7 @@ class EmailSender:
         self.msg.attach(pdf)
         
     def send_message(self):
-        server = smtplib.SMTP( self.smtp_server_name, self.smtp_server_port)
+        server = smtplib.SMTP(self.smtp_server_name, self.smtp_server_port)
         server.ehlo()
         server.starttls()
         server.login(self.user, self.password)
