@@ -8,7 +8,12 @@ import getpass
 
 class EmailSender:
     '''
-    Very crude email sender
+    Very crude email sender. I suggest setting up a dedicated Google account
+    and use Google's SMTP server. To allow and App to login to Google's
+    SMTP server, one must first activate 2FA in the Google account settings, 
+    then generate an App key (as of 2023/09/15).
+    SMTP address: smtp.gmail.com
+    SMTP port: 587 (STARTTLS) 
     '''
     
     def __init__(
