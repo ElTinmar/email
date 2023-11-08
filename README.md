@@ -1,4 +1,4 @@
-# email
+# email sender
 
 crude email sender
 
